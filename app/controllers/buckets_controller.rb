@@ -1,5 +1,6 @@
 class BucketsController < ApplicationController
   before_action :set_bucket, only: [:show, :edit, :update, :destroy]
+    
     def index
       @buckets = Bucket.all
     end
@@ -19,24 +20,25 @@ class BucketsController < ApplicationController
         render :new
       end
     end
+
     def update
       if @bucket.update(bucket_params)
         redirect_to root_path, notice: 'Updated!'
       else
         render :edit
       end
-      end
+    end
     
-      def destroy
+    def destroy
       if @bucket.destroy
         redirect_to root_path, notice: 'Destroyed!'
       else
         render :index
       end
-
-      end
+    end
     
-      private
+    private
+
       def set_bucket
         @bucket = Bucket.find(params[:id])
       end
@@ -44,7 +46,5 @@ class BucketsController < ApplicationController
       def bucket_params
         params.require(:bucket).permit(:name, :user_id)
       end
-    
-    
-
+  
 end
