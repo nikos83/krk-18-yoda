@@ -14,6 +14,7 @@ gem 'jquery-rails'
 gem 'aws-sdk', '~> 3'
 gem 'carrierwave', '~> 1.0'
 gem 'devise'
+gem 'fog-aws', require: true
 
 group :development, :test do
   gem 'pry'
