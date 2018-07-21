@@ -12,6 +12,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap'
 gem 'jquery-rails'
 gem 'aws-sdk', '~> 3'
+gem 'carrierwave', '~> 1.0'
 
 group :development, :test do
   gem 'pry'
