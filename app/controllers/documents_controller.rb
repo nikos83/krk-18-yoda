@@ -1,35 +1,35 @@
 class DocumentsController < ApplicationController
   before_action :set_document, only: [:show, :edit, :update, :destroy]
 
-  # GET /document
-  # GET /document.json
+  # GET /Documents
+  # GET /Documents.json
   def index
-    @documents = Post.all
+    @documents = Document.all
   end
 
-  # GET /document/1
-  # GET /document/1.json
+  # GET /Documents/1
+  # GET /Documents/1.json
   def show
   end
 
-  # GET /document/new
+  # GET /Documents/new
   def new
     @document = Document.new
   end
 
-  # GET /document/1/edit
+  # GET /Documents/1/edit
   def edit
   end
 
-  # POST /document
-  # POST /document.json
+  # Document /Documents
+  # Document /Documents.json
   def create
     @document = Document.new(document_params)
     @document.bucket = Bucket.first
     respond_to do |format|
-      if @document.save
-        format.html { redirect_to @document, notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: @document }
+      if @post.save
+        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
         format.json { render json: @document.errors, status: :unprocessable_entity }
@@ -37,12 +37,12 @@ class DocumentsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /document/1
-  # PATCH/PUT /document/1.json
+  # PATCH/PUT /Documents/1
+  # PATCH/PUT /Documents/1.json
   def update
     respond_to do |format|
       if @document.update(document_params)
-        format.html { redirect_to @document, notice: 'Post was successfully updated.' }
+        format.html { redirect_to @document, notice: 'Document was successfully updated.' }
         format.json { render :show, status: :ok, location: @document }
       else
         format.html { render :edit }
@@ -51,12 +51,12 @@ class DocumentsController < ApplicationController
     end
   end
 
-  # DELETE /document/1
-  # DELETE /document/1.json
+  # DELETE /Documents/1
+  # DELETE /Documents/1.json
   def destroy
     @document.destroy
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
+      format.html { redirect_to Documents_url, notice: 'Document was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

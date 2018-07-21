@@ -15,6 +15,8 @@ gem 'aws-sdk', '~> 3'
 gem 'carrierwave', '~> 1.0'
 gem 'devise'
 gem 'fog-aws', require: true
+gem 'binding_of_caller'
+
 
 group :development, :test do
   gem 'pry'
