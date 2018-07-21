@@ -1,74 +1,74 @@
 class DocumentsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_Document, only: [:show, :edit, :update, :destroy]
 
-  # GET /posts
-  # GET /posts.json
+  # GET /Documents
+  # GET /Documents.json
   def index
-    @posts = Post.all
+    @documents = Document.all
   end
 
-  # GET /posts/1
-  # GET /posts/1.json
+  # GET /Documents/1
+  # GET /Documents/1.json
   def show
   end
 
-  # GET /posts/new
+  # GET /Documents/new
   def new
-    @post = Post.new
+    @document = Document.new
   end
 
-  # GET /posts/1/edit
+  # GET /Documents/1/edit
   def edit
   end
 
-  # POST /posts
-  # POST /posts.json
+  # Document /Documents
+  # Document /Documents.json
   def create
-    @post = Post.new(post_params)
+    @document = Document.new(Document_params)
 
     respond_to do |format|
-      if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: @post }
+      if @document.save
+        format.html { redirect_to @document, notice: 'Document was successfully created.' }
+        format.json { render :show, status: :created, location: @document }
       else
         format.html { render :new }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        format.json { render json: @document.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /posts/1
-  # PATCH/PUT /posts/1.json
+  # PATCH/PUT /Documents/1
+  # PATCH/PUT /Documents/1.json
   def update
     respond_to do |format|
-      if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
-        format.json { render :show, status: :ok, location: @post }
+      if @document.update(Document_paraDocumentms)
+        format.html { redirect_to @document, notice: 'Document was successfully updated.' }
+        format.json { render :show, status: :ok, location: @document }
       else
         format.html { render :edit }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        format.json { render json: @document.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /posts/1
-  # DELETE /posts/1.json
+  # DELETE /Documents/1
+  # DELETE /Documents/1.json
   def destroy
-    @post.destroy
+    @document.destroy
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
+      format.html { redirect_to Documents_url, notice: 'Document was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_post
-      @post = Post.find(params[:id])
+    def set_Document
+      @document = Document.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def post_params
-      params.require(:post).permit(:name, :title, :content)
+    def Document_params
+      params.require(:Document).permit(:name, :title, :content)
     end
 end
