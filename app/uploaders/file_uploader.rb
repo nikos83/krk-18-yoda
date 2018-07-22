@@ -1,4 +1,4 @@
-class PhotoUploader < CarrierWave::Uploader::Base
+class FileUploader < CarrierWave::Uploader::Base
   storage :fog
 
   def store_dir

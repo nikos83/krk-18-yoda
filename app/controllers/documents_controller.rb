@@ -27,13 +27,7 @@ class DocumentsController < ApplicationController
     @document = Document.new(document_params)
     @document.bucket = Bucket.first
     if @document.save
-      # format.html { redirect_to @document, notice: 'Post was successfully created.' }
-      # format.json { render :show, status: :created, location: @document}
-      # perform_upload_file_confirmation(@document.id)
       perform_upload_file_confirmation(@document.id)
-    else
-      # format.html { render :new }
-      # format.json { render json: @document.errors, status: :unprocessable_entity }
     end
   end
 
