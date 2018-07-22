@@ -1,5 +1,5 @@
 class DocumentsController < ApplicationController
-  before_action :set_Document, only: [:show, :edit, :update, :destroy]
+  before_action :set_document, only: [:show, :edit, :update, :destroy]
 
   # GET /Documents
   # GET /Documents.json
@@ -24,12 +24,12 @@ class DocumentsController < ApplicationController
   # Document /Documents
   # Document /Documents.json
   def create
-    @document = Document.new(Document_params)
-
+    @document = Document.new(document_params)
+    @document.bucket = Bucket.first
     respond_to do |format|
-      if @document.save
-        format.html { redirect_to @document, notice: 'Document was successfully created.' }
-        format.json { render :show, status: :created, location: @document }
+      if @post.save
+        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
         format.json { render json: @document.errors, status: :unprocessable_entity }
@@ -41,7 +41,7 @@ class DocumentsController < ApplicationController
   # PATCH/PUT /Documents/1.json
   def update
     respond_to do |format|
-      if @document.update(Document_paraDocumentms)
+      if @document.update(document_params)
         format.html { redirect_to @document, notice: 'Document was successfully updated.' }
         format.json { render :show, status: :ok, location: @document }
       else
@@ -63,12 +63,12 @@ class DocumentsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_Document
+    def set_document
       @document = Document.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def Document_params
-      params.require(:Document).permit(:name, :title, :content)
+    def document_params
+      params.require(:document).permit(:name, :title, :content, :file)
     end
 end
