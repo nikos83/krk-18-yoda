@@ -113,6 +113,10 @@ Devise.setup do |config|
   # a value of 20 is already extremely slow: approx. 60 seconds for 1 calculation).
   config.stretches = Rails.env.test? ? 1 : 11
 
+
+  config.omniauth :facebook, Rails.application.credentials.dig(:facebook, :app_id), Rails.application.credentials.dig(:facebook, :app_secret), callback_url: "http://localhost:3000/users/auth/facebook/callback"
+
+
   # Set up a pepper to generate the hashed password.
   # config.pepper = '739720db07831560fd9d73300bc77b62709f5aa05e9e9a9e8b96ae0b025a63eed10f6b9c1ab3013acfe8a1d43917b0889bbe86e409397203651897ec1a2d2208'
 

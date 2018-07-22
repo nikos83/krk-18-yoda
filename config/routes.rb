@@ -1,8 +1,20 @@
 Rails.application.routes.draw do
-  devise_for :users
+  #devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
-  root to: 'posts#index'
 
-  resources :posts
+  #root to: 'posts#index'
+
+  #resources :posts
+
+  authenticated :user do
+    root 'home#index', as: 'authenticated_root'
+  end
+  devise_scope :user do
+    root 'devise/sessions#new'
+  end
+
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
