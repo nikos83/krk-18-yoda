@@ -26,14 +26,9 @@ class DocumentsController < ApplicationController
   def create
     @document = Document.new(document_params)
     @document.bucket = Bucket.first
-    respond_to do |format|
-      if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: @post }
-      else
-        format.html { render :new }
-        format.json { render json: @document.errors, status: :unprocessable_entity }
-      end
+    if @document.save
+      perform_upload_file_confirmation(@document.id)
+      redirect_to dashboard_path
     end
   end
 
@@ -70,5 +65,9 @@ class DocumentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def document_params
       params.require(:document).permit(:name, :title, :content, :file)
+    end
+
+    def perform_upload_file_confirmation(document_id)
+      ::FileUploadWorker.perform_async(document_id)
     end
 end

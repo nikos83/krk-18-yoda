@@ -18,7 +18,7 @@ gem 'omniauth-facebook'
 gem 'figaro'
 gem 'fog-aws', require: true
 gem 'binding_of_caller'
-
+gem 'sidekiq'
 
 group :development, :test do
   gem 'pry'
