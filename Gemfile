@@ -16,7 +16,7 @@ gem 'carrierwave', '~> 1.0'
 gem 'devise'
 gem 'fog-aws', require: true
 gem 'binding_of_caller'
-
+gem 'sidekiq'
 
 group :development, :test do
   gem 'pry'
