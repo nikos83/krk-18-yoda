@@ -3,10 +3,10 @@
   <div class="row">
     <div class="col-sm tile">
       <% @documents.each do |document| %>
-        <span> <img src="assets/rss.jpg" alt="rss feed"/></span>
+        <%= image_tag "icon_document.png" %>
         <span><%= document.name %></span>
         <span><%= document.issue_date %></span>
-        <span> One of three columns </span>
+        <span><%=  %></span>
       <% end %>
       <%= link_to "New Document", new_document_path, class: "btn btn-xs btn-success" %>
       <div class="col-sm tile">
