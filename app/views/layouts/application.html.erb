@@ -15,6 +15,10 @@
     <%= link_to "Login", new_user_session_path %>
    <% end %>
   <body>
-    <%= yield %>
+    <section class="py-5">
+      <div class="container">
+        <%= yield %>
+      </div>
+    </section>  
   </body>
 </html>
