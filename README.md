@@ -6,6 +6,7 @@
 
 ## About
 
+YodaDigitize is an app that lets you store your personal documents online, and manage them in categories.
 Unprint what you printed. Join the cloud side!
 
 * Ruby version
