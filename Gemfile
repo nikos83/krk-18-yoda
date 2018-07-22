@@ -11,9 +11,14 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap'
 gem 'jquery-rails'
+gem 'aws-sdk', '~> 3'
+gem 'carrierwave', '~> 1.0'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'figaro'
+gem 'fog-aws', require: true
+gem 'binding_of_caller'
+
 
 group :development, :test do
   gem 'pry'
@@ -28,6 +33,7 @@ end
 
 group :development do
   gem 'better_errors'
+  gem 'guard-rubocop', require: false
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'

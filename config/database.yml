@@ -2,7 +2,7 @@ development:
  adapter: postgresql
  encoding: utf8
  host: localhost
- database: workshop_development
+ database: workshop_development1
  pool: 5
  username: postgres
  password: password
@@ -11,7 +11,7 @@ test: &TEST
  adapter: postgresql
  encoding: utf8
  host: localhost
- database: workshop_test
+ database: workshop_test1
  pool: 5
  username: postgres
  password: password
