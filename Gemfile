@@ -18,7 +18,10 @@ gem 'omniauth-facebook'
 gem 'figaro'
 gem 'fog-aws', require: true
 gem 'binding_of_caller'
+gem 'bootstrap4-datetime-picker-rails'
+gem 'momentjs-rails'
 gem 'sidekiq'
+
 
 group :development, :test do
   gem 'pry'
