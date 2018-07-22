@@ -1,3 +1,3 @@
-class WelcomeController < ActionController::Base
+class WelcomeController < ApplicationController
   def home; end
 end
