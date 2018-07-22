@@ -2,7 +2,6 @@ class FileUploadWorker
   include Sidekiq::Worker
 
   def perform(document_id)
-    document = Document.find(document_id)
-    FileUploadMailer.confirmation_upload(document)
+    FileUploadMailer.confirmation_upload(document_id).deliver_now
   end
 end
