@@ -14,6 +14,8 @@ gem 'jquery-rails'
 gem 'aws-sdk', '~> 3'
 gem 'carrierwave', '~> 1.0'
 gem 'devise'
+gem 'omniauth-facebook'
+gem 'figaro'
 gem 'fog-aws', require: true
 gem 'binding_of_caller'
 gem 'sidekiq'
