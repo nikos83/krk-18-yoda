@@ -28,7 +28,7 @@ class DocumentsController < ApplicationController
     @document.bucket = Bucket.first
     if @document.save
       perform_upload_file_confirmation(@document.id)
-      redirect_to buckets_path
+      redirect_to dashboard_path
     end
   end
 
