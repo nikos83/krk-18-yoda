@@ -14,11 +14,17 @@ gem 'jquery-rails'
 gem 'aws-sdk', '~> 3'
 gem 'carrierwave', '~> 1.0'
 gem 'devise'
+gem 'omniauth-facebook'
+gem 'figaro'
 gem 'fog-aws', require: true
 gem 'binding_of_caller'
+<<<<<<< HEAD
 gem 'bootstrap4-datetime-picker-rails'
 gem 'momentjs-rails'
 
+=======
+gem 'sidekiq'
+>>>>>>> master
 
 group :development, :test do
   gem 'pry'

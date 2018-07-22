@@ -18,12 +18,9 @@ class DocumentsController < ApplicationController
   def create
     @document = Document.new(document_params)
     @document.bucket = Bucket.first
-    respond_to do |format|
-      if @document.save
-        format.html { redirect_to document_path, notice: 'Doc was successfully created.' }
-      else
-        format.html { render :new }
-      end
+    if @document.save
+      perform_upload_file_confirmation(@document.id)
+      redirect_to dashboard_path
     end
   end
 
@@ -52,5 +49,9 @@ class DocumentsController < ApplicationController
 
     def document_params
       params.require(:document).permit(:name, :title, :content, :file,:document_type, :issue_date)
+    end
+
+    def perform_upload_file_confirmation(document_id)
+      ::FileUploadWorker.perform_async(document_id)
     end
 end
