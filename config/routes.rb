@@ -1,6 +1,7 @@
-Rails.application.routes.draw do
+# frozen_string_literal: true
 
-  devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks"}
+Rails.application.routes.draw do
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   authenticated :user do
     root 'welcome#home', as: 'authenticated_root'
@@ -15,5 +16,4 @@ Rails.application.routes.draw do
   get 'digitize', to: 'documents#new'
   get 'dashboard', to: 'documents#index'
   resources :buckets
-
 end

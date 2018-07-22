@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DocumentsController < ApplicationController
   before_action :set_document, only: [:show, :edit, :update, :destroy]
 
@@ -9,8 +11,7 @@ class DocumentsController < ApplicationController
 
   # GET /Documents/1
   # GET /Documents/1.json
-  def show
-  end
+  def show; end
 
   # GET /Documents/new
   def new
@@ -18,8 +19,7 @@ class DocumentsController < ApplicationController
   end
 
   # GET /Documents/1/edit
-  def edit
-  end
+  def edit; end
 
   # Document /Documents
   # Document /Documents.json
@@ -62,13 +62,14 @@ class DocumentsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_document
-      @document = Document.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def document_params
-      params.require(:document).permit(:name, :title, :content, :file)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_document
+    @document = Document.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def document_params
+    params.require(:document).permit(:name, :title, :content, :file)
+  end
 end
