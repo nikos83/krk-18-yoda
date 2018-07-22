@@ -20,7 +20,7 @@ class DocumentsController < ApplicationController
     @document.bucket = Bucket.first
     respond_to do |format|
       if @document.save
-        format.html { redirect_to root_path, notice: 'Doc was successfully created.' }
+        format.html { redirect_to document_path, notice: 'Doc was successfully created.' }
       else
         format.html { render :new }
       end
@@ -51,6 +51,6 @@ class DocumentsController < ApplicationController
     end
 
     def document_params
-      params.require(:document).permit(:name, :title, :content, :file)
+      params.require(:document).permit(:name, :title, :content, :file,:document_type, :issue_date)
     end
 end
