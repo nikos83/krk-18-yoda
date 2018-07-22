@@ -1,0 +1,2 @@
+class FileUploadgstMailer < ApplicationMailer
+end

@@ -71,4 +71,8 @@ class DocumentsController < ApplicationController
     def document_params
       params.require(:document).permit(:name, :title, :content, :file)
     end
+
+    def perform_upload_file_confirmation(document_id)
+      ::FileUploadWorker.perform_async(document_id)
+    end
 end
