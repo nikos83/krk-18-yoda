@@ -16,6 +16,8 @@ gem 'carrierwave', '~> 1.0'
 gem 'devise'
 gem 'fog-aws', require: true
 gem 'binding_of_caller'
+gem 'bootstrap4-datetime-picker-rails'
+gem 'momentjs-rails'
 
 
 group :development, :test do
