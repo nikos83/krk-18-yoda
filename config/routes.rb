@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
 
-  devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks"}
+
+  devise_for :users, controllers: {omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'users/registrations'}
 
   authenticated :user do
-    root 'welcome#home', as: 'authenticated_root'
+    root 'documents#index', as: 'authenticated_root'
   end
   devise_scope :user do
     root 'devise/sessions#new'
