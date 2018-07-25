@@ -12,7 +12,7 @@
   <%= render 'layouts/menu' %>
  <header>
  <% if user_signed_in? %>
-  <% img_tag("header.png", alt:"Yoda", class:"img-fluid")%>
+   <%= image_tag("header.png", alt: "YodaTeam", class: 'img-fluid') %>
  <% else %>
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
