@@ -6,11 +6,13 @@ class User < ApplicationRecord
   has_many :buckets
   has_many :documents, through: :buckets
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable,
+         omniauth_providers: [:facebook]
 
   def self.new_with_session(params, session)
     super.tap do |user|
-      if data = session['devise.facebook_data'] && session['devise.facebook_data']['extra']['raw_info']
+      if (data = session['devise.facebook_data'] &&
+        session['devise.facebook_data']['extra']['raw_info'])
         user.email = data['email'] if user.email.blank?
       end
     end
