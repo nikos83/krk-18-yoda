@@ -497,7 +497,7 @@ Metrics/AbcSize:
   Description: A calculated magnitude based on number of assignments, branches, and
     conditions.
   Enabled: true
-  Max: 9.9
+  Max: 15
 Metrics/BlockLength:
   CountComments: false
   Max: 25
@@ -533,7 +533,7 @@ Metrics/MethodLength:
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#short-methods
   Enabled: true
   CountComments: true
-  Max: 10
+  Max: 12
   Exclude:
   - "spec/**/*"
 Metrics/ParameterLists:

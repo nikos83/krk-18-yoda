@@ -1,9 +1,12 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
 
-
-  devise_for :users, controllers: {omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'users/registrations'}
+  devise_for :users, controllers: {
+    omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'users/registrations'
+  }
 
   authenticated :user do
     root 'documents#index', as: 'authenticated_root'
@@ -18,5 +21,4 @@ Rails.application.routes.draw do
   get 'digitize', to: 'documents#new'
   get 'dashboard', to: 'documents#index'
   resources :buckets
-
 end
