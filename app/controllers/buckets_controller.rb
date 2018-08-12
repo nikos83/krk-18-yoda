@@ -4,7 +4,7 @@ class BucketsController < ApplicationController
   before_action :set_bucket, only: [:show, :update, :destroy]
 
   def index
-    @buckets = Bucket.all
+    @buckets = current_user.buckets
   end
 
   def new
@@ -16,7 +16,7 @@ class BucketsController < ApplicationController
   def create
     @bucket = current_user.buckets.new(bucket_params)
     if @bucket.save
-      redirect_to root_path, notice: 'CREATED!'
+      redirect_to buckets_path, notice: 'CREATED!'
     else
       render :new
     end
@@ -24,7 +24,7 @@ class BucketsController < ApplicationController
 
   def update
     if @bucket.update(bucket_params)
-      redirect_to root_path, notice: 'Updated!'
+      redirect_to buckets_path, notice: 'Updated!'
     else
       render :edit
     end
@@ -41,7 +41,7 @@ class BucketsController < ApplicationController
   private
 
   def set_bucket
-    @bucket = Bucket.find(params[:id])
+    @bucket = current_user.buckets.find(params[:id])
   end
 
   def bucket_params
