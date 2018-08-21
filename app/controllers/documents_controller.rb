@@ -5,6 +5,7 @@ class DocumentsController < ApplicationController
 
   def index
     @documents = current_user.documents
+    @buckets = current_user.buckets
   end
 
   def show; end

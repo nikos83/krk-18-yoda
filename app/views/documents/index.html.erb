@@ -1,15 +1,28 @@
 <h1>Listing documents</h1>
 <div class="container">
-  <div class="row">
-    <div class="col-sm tile">
-      <% @documents.each do |document| %>
-        <%= image_tag "icon_document.png", class: "responsive" %>
-        <span><%= document.name %></span>
-        <span><%= document.issue_date %></span>
-      <% end %>
-      <%= link_to "New Document", new_document_path, class: "btn btn-xs btn-success" %>
-      <div class="col-sm tile">
+ <div id="accordion">
+ <% @buckets.each do |bucket| %>
+    <div class="card">
+      <div class="card-header">
+        <a class="card-link" data-toggle="collapse" href="#collapse<%=bucket.name.gsub(/[^0-9A-Za-z]/, '')%>">
+          <%=bucket.name%>
+        </a>
+      </div>
+      <div id="collapse<%=bucket.name.gsub(/[^0-9A-Za-z]/, '')%>" class="collapse" data-parent="#accordion">
+        <div class="card-body">
+          <% if bucket.documents.presence %>
+            <% bucket.documents.each do |document| %>
+              <%= image_tag "icon_document.png", class: "responsive" %>
+              <span><%= document.name %></span>
+              <span><%= document.issue_date %></span>
+            <% end %>
+          <% else %>
+           <p>There's no files in this folder :D</p>
+          <% end %>
+        </div>
       </div>
     </div>
+     <% end %>
   </div>
+ 
 </div>
