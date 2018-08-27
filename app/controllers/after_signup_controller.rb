@@ -3,5 +3,10 @@
 class AfterSignupController < ApplicationController
   include Wicked::Wizard
 
-  steps :confirm_password, :confirm_profile, :find_friends
+  steps :add_bucket, :add_document
+
+  def show
+    @user = current_user
+    render_wizard
+  end
 end
