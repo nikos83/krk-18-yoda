@@ -1,0 +1,7 @@
+# frozen_string_literal: true
+
+class AfterSignupController < ApplicationController
+  include Wicked::Wizard
+
+  steps :confirm_password, :confirm_profile, :find_friends
+end
