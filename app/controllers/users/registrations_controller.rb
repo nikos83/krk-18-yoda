@@ -12,4 +12,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create_overall_bucket(resource_id)
     Bucket.create(name: 'General', user_id: resource_id)
   end
+  
+  def after_sign_up_path_for(resource)
+    "/after_signup/add_bucket"
+  end
+
+  def after_inactive_sign_up_path_for(resource)
+    "/after_signup/add_bucket"
+  end
 end

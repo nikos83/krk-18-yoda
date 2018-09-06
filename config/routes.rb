@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   get 'digitize', to: 'documents#new'
   get 'dashboard', to: 'documents#index'
   resources :buckets
-  resources :after_signup do
-  end
+  resources :after_signup
+  
   
 end
