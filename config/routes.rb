@@ -17,11 +17,13 @@ Rails.application.routes.draw do
 
   root 'welcome#home'
 
-  resources :documents
+  resources 'documents' do
+    resources 'build'
+  end
   get 'digitize', to: 'documents#new'
   get 'dashboard', to: 'documents#index'
-  resources :buckets
+
   resources :after_signup
-  
+  resources :buckets
   
 end
