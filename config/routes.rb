@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'documents#index'
 
   resources :after_signup
+  post '/after_signup/add_bucket', to: 'after_signup#create'
   resources :buckets
   
 end

@@ -12,12 +12,15 @@ class DocumentsController < ApplicationController
 
   def new
     @document = Document.new
+    @bucket = Bucket.new
+    
   end
 
   def edit; end
 
   def create
     @document = current_user.documents.new(document_params)
+    @bucket = current_user.buckets.new(document_params)
     if @document.save
       perform_upload_file_confirmation(@document.id)
       redirect_to dashboard_path
@@ -50,7 +53,7 @@ class DocumentsController < ApplicationController
   
   def document_params
     params.require(:document).
-    permit(:name, :title, :content, :file, :document_type, :issue_date, :bucket_id)
+    permit(:name, :title, :content, :file, :document_type, :issue_date, :bucket_id, bucket_attributes: [ :name ] )
   end
 
   def perform_upload_file_confirmation(document_id)
