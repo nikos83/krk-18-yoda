@@ -25,6 +25,7 @@ public/uploads/tmp/*
 .DS_Store
 
 .idea/
+.vscode/
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
