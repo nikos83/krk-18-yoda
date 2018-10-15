@@ -50,7 +50,7 @@ class DocumentsController < ApplicationController
   
   def document_params
     params.require(:document).
-    permit(:name, :title, :content, :file, :document_type, :issue_date, :bucket_id)
+    permit(:name, :title, :content, :file, :document_type, :issue_date, :bucket_id, :new_category_name)
   end
 
   def perform_upload_file_confirmation(document_id)
