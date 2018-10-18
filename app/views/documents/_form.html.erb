@@ -15,7 +15,7 @@
           <%= form.label :bucket %>
             <%= form.collection_select(:bucket_id, current_user.buckets, :id, :name, {prompt: 'Choose a bucket' }) %>
         </div>
-        or create one:
+         or create one:
         <%= form.text_field :new_bucket_name %>
         <div class="form-group">
           <%= form.label :document_type %>
