@@ -2,7 +2,6 @@
 
 class DocumentsController < ApplicationController
   before_action :set_document, only: [:show, :edit, :update, :destroy]
-  
   def index
     @documents = current_user.documents
     @buckets = current_user.buckets
@@ -47,10 +46,11 @@ class DocumentsController < ApplicationController
   def set_document
     @document = Document.find(params[:id])
   end
-  
+
   def document_params
-    params.require(:document).
-    permit(:name, :title, :content, :file, :document_type, :issue_date, :bucket_id, :new_bucket_name)
+    params.require(:document)
+      .permit(:name, :title, :content, :file,
+              :document_type, :issue_date, :bucket_id, :new_bucket_name)
   end
 
   def perform_upload_file_confirmation(document_id)

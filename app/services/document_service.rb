@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DocumentService
   def self.build(user, params)
     new(user, params).build
@@ -19,6 +21,7 @@ class DocumentService
   end
 
   def bucket
-    Bucket.find_by(id: @params[:bucket_id]) || Bucket.create(name: @params[:new_bucket_name], user: @user)
+    Bucket.find_by(id: @params[:bucket_id]) ||
+      Bucket.create(name: @params[:new_bucket_name], user: @user)
   end
 end

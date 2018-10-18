@@ -5,5 +5,4 @@ class Document < ApplicationRecord
   delegate :user, to: :bucket
   belongs_to :bucket
   attr_accessor :new_bucket_name
-
 end
