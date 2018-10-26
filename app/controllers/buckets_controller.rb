@@ -14,8 +14,7 @@ class BucketsController < ApplicationController
   def show; end
 
   def create
-    # @bucket = current_user.buckets.new(bucket_params)
-    @document = DocumentService.build(current_user, document_params)
+    @bucket = current_user.buckets.new(bucket_params)
     if @bucket.save
       redirect_to buckets_path, notice: 'CREATED!'
     else
